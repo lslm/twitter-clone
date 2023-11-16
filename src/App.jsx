@@ -5,6 +5,7 @@ import './App.css'
 import NewPostForm from './components/NewPostForm'
 import Header from './components/Header'
 import Post from './components/Post'
+import Feed from './pages/Feed'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,9 +18,7 @@ function App() {
   return (
     <>
       <Header />
-      <NewPostForm />
-
-      <Post post={post} />
+      <Feed />
     </>
   )
 }

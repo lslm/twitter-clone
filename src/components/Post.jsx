@@ -5,7 +5,7 @@ import { grey } from "@mui/material/colors";
 
 export default function Post({ post }) {
   return (
-    <Card>
+    <Card sx={{ marginBottom: '1em' }}>
       <CardContent>
         <Typography component="div">
           <Box sx={{ fontSize: 10, textTransform: 'uppercase', marginBottom: '1em', color: 'GrayText' }}>Publicado por { post.author }</Box>
