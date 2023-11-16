@@ -6,6 +6,7 @@ import NewPostForm from './components/NewPostForm'
 import Header from './components/Header'
 import Post from './components/Post'
 import Feed from './pages/Feed'
+import PostDetail from './pages/PostDetail'
 
 function App() {
   const [count, setCount] = useState(0)
