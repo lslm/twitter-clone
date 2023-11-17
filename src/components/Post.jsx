@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function Post({ post }) {
   return (
-    <Card sx={{ marginBottom: '1em' }}>
+    <Card sx={{ marginBottom: '1em', width: '100%' }}>
       <Link to={`/posts/${post.id}`}>
         <CardContent>
           <Typography component="div">
