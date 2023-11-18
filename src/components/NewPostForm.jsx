@@ -3,10 +3,13 @@ import './NewPostForm.css'
 import { Send } from "@mui/icons-material";
 import { Textarea } from "@mui/joy";
 import { Button } from "@mui/joy";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { PostContext } from '../contexts/PostContext';
 
-export default function NewPostForm({ updateFeed }) {
+export default function NewPostForm() {
   const [content, setContent] = useState('')
+
+  const { createPost } = useContext(PostContext)
 
   const handleChangeContent = (event) => {
     setContent(event.target.value)
@@ -14,24 +17,7 @@ export default function NewPostForm({ updateFeed }) {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault()
-    console.log('Sending event', content)
-
-    const payload = {
-      author: 'Lucas Santos',
-      content
-    }
-
-    console.log(payload)
-
-    const response = await fetch('http://localhost:3000/posts', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(payload)
-    })
-
-    updateFeed()
+    createPost(content)
   }
 
   return (
