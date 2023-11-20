@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Feed from './pages/Feed.jsx'
-import PostDetail from './pages/PostDetail.jsx'
+import { PostDetail, postLoader } from './pages/PostDetail.jsx'
 import Main from './layouts/Main.jsx'
 
 const router = createBrowserRouter([
@@ -18,7 +18,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/posts/:id',
-        element: <PostDetail />
+        element: <PostDetail />,
+        loader: postLoader
       }
     ]
   },

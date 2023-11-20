@@ -2,13 +2,19 @@ import { Card, CardContent } from "@mui/joy";
 import { Box, Typography } from "@mui/material";
 
 import { grey } from "@mui/material/colors";
+import { useLoaderData } from "react-router-dom";
 
-export default function PostDetail() {
-  const post = {
-    id: 3,
-    author: "Lucas Santos",
-    content: "Node.js é um ambiente de execução JavaScript do lado do servidor. Baseado no motor V8 do Google Chrome, permite desenvolver aplicações escaláveis e de alto desempenho. Favorece a construção de servidores web e APIs, possibilitando operações assíncronas eficientes. Sua vasta biblioteca de módulos (npm) simplifica o desenvolvimento, tornando-o popular para aplicações web em tempo real e microsserviços."
-  }
+const postLoader = async ({params}) => {
+  console.log(params)
+
+  const response = await fetch(`http://localhost:3000/posts/${params.id}`)
+  const post = await response.json()
+
+  return { post }
+}
+
+const PostDetail = () => {
+  const { post } = useLoaderData()
 
   return (
     <Card variant="outlined" sx={{ overflow: 'auto', margin: 'auto', width: 940, marginTop: '6em' }}>
@@ -21,3 +27,5 @@ export default function PostDetail() {
     </Card>
   )
 }
+
+export { PostDetail, postLoader }
