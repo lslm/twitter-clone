@@ -1,38 +1,36 @@
-import './NewPostForm.css'
+import './NewPostForm.css';
 
-import { Send } from "@mui/icons-material";
-import { Textarea } from "@mui/joy";
-import { Button } from "@mui/joy";
-import { useContext, useState } from "react";
+import { Send } from '@mui/icons-material';
+import { useState, useContext } from 'react';
+import { Textarea, Button } from '@mui/joy';
 import { PostContext } from '../contexts/PostContext';
 
 export default function NewPostForm() {
-  const [content, setContent] = useState('')
+  const [content, setContent] = useState('');
 
-  const { createPost } = useContext(PostContext)
+  const { createPost } = useContext(PostContext);
 
   const handleChangeContent = (event) => {
-    setContent(event.target.value)
-  }
+    setContent(event.target.value);
+  };
 
   const handleFormSubmit = async (e) => {
-    e.preventDefault()
-    createPost(content)
-  }
+    e.preventDefault();
+    createPost(content);
+  };
 
   return (
-    <>
-      <form className="new-post" onSubmit={handleFormSubmit}>
-        <Textarea className="input" value={content} onChange={handleChangeContent} minRows={3} placeholder="No que você está pensando?" />
+    <form className="new-post" onSubmit={handleFormSubmit}>
+      <Textarea className="input" value={content} onChange={handleChangeContent} minRows={3} placeholder="No que você está pensando?" />
 
-        <Button
-          type="submit"
-          variant="outlined"
-          size="lg"
-          startDecorator={<Send />}>
-          Enviar
-        </Button>
-      </form>
-    </>
-  )
+      <Button
+        type="submit"
+        variant="outlined"
+        size="lg"
+        startDecorator={<Send />}
+      >
+        Enviar
+      </Button>
+    </form>
+  );
 }

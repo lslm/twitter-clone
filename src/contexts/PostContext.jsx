@@ -1,48 +1,44 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from 'react';
 
-const PostContext = createContext()
+const PostContext = createContext();
 
-const PostProvider = ({ children }) => {
-  const [posts, setPosts] = useState([])
+function PostProvider({ children }) {
+  const [posts, setPosts] = useState([]);
 
   const fetchPosts = async () => {
-    const response = await fetch('http://localhost:3000/posts')
-    const posts = await response.json()
-    setPosts(posts)
-  }
+    const response = await fetch('http://localhost:3000/posts');
+    const postsBody = await response.json();
+    setPosts(postsBody);
+  };
 
   useEffect(() => {
-    fetchPosts()
-  }, [])
+    fetchPosts();
+  }, []);
 
   const createPost = async (content) => {
-    console.log('Sending event', content)
-
     const payload = {
       author: 'Lucas Santos',
-      content
-    }
-
-    console.log(payload)
+      content,
+    };
 
     const response = await fetch('http://localhost:3000/posts', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(payload)
-    })
+      body: JSON.stringify(payload),
+    });
 
-    const data = await response.json()
+    const data = await response.json();
 
-    setPosts([data, ...posts])
-  }
+    setPosts([data, ...posts]);
+  };
 
   return (
     <PostContext.Provider value={{ posts, createPost }}>
       { children }
     </PostContext.Provider>
-  )
+  );
 }
 
-export { PostContext, PostProvider }
+export { PostContext, PostProvider };
