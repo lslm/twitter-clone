@@ -4,6 +4,7 @@ import { Send } from '@mui/icons-material';
 import { useState, useContext } from 'react';
 import { Textarea, Button } from '@mui/joy';
 import { PostContext } from '../contexts/PostContext';
+import PrimaryButton from './PrimaryButton';
 
 export default function NewPostForm() {
   const [content, setContent] = useState('');
@@ -23,14 +24,7 @@ export default function NewPostForm() {
     <form className="new-post" onSubmit={handleFormSubmit}>
       <Textarea className="input" value={content} onChange={handleChangeContent} minRows={3} placeholder="No que você está pensando?" />
 
-      <Button
-        type="submit"
-        variant="outlined"
-        size="lg"
-        startDecorator={<Send />}
-      >
-        Enviar
-      </Button>
+      <PrimaryButton label="Enviar" />
     </form>
   );
 }
