@@ -1,28 +1,28 @@
-import PrimaryButton from "../components/PrimaryButton";
+import PrimaryButton from '../components/PrimaryButton';
 
 export default {
   component: PrimaryButton,
-  tags: ['autodocs']
-}
+  tags: ['autodocs'],
+};
 
 export const Default = {
   args: {
-    label: 'Hello'
-  }
-}
+    label: 'Hello',
+  },
+};
 
 export const Primary = {
   args: {
     label: 'Hello',
     variant: 'outlined',
-    size: 'md'
-  }
-}
+    size: 'md',
+  },
+};
 
 export const PrimarySolid = {
   args: {
     label: 'Hello',
     variant: 'solid',
-    size: 'md'
-  }
-}
+    size: 'md',
+  },
+};
