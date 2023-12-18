@@ -27,8 +27,7 @@ export default function Post({ post }) {
               fontSize: 10, textTransform: 'uppercase', marginBottom: '1em', color: 'GrayText',
             }}
             >
-              Publicado por
-              { post.author }
+              Publicado por { post.author }
             </Box>
             <Box sx={{ fontWeight: 'regular', color: grey[700] }}>{ post.content }</Box>
           </Typography>

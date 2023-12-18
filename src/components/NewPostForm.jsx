@@ -19,11 +19,15 @@ export default function NewPostForm() {
     createPost(content);
   };
 
+  const isDisabled = () => {
+    return content.length == 0
+  }
+
   return (
     <form className="new-post" onSubmit={handleFormSubmit}>
       <Textarea className="input" value={content} onChange={handleChangeContent} minRows={3} placeholder="No que você está pensando?" />
 
-      <PrimaryButton label="Enviar" />
+      <PrimaryButton label="Enviar" disabled={isDisabled()} />
     </form>
   );
 }

@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    vitest: true,
   },
   extends: ['airbnb', 'plugin:storybook/recommended'],
   overrides: [
@@ -25,5 +26,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'react/jsx-no-constructed-context-values': 'off',
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
 };
